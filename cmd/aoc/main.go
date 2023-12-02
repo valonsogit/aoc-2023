@@ -1,12 +1,13 @@
 package main
 
 import (
-	"aoc/internal/aoc"
-	"aoc/internal/days"
 	"flag"
 	"fmt"
 	"log"
 	"time"
+
+	"github.com/valonsogit/aoc-2023/internal/advent"
+	"github.com/valonsogit/aoc-2023/internal/days"
 )
 
 func main() {
@@ -15,11 +16,11 @@ func main() {
 	testInputArg := flag.Bool("t", false, "Whether to use test inputs instead of full ones.")
 	flag.Parse()
 
-	days := []aoc.Day{days.Day1{}, &days.Day2{}}
+	days := []advent.Day{days.Day1{}, &days.Day2{}}
 	if *executeAllArg {
 		for i, v := range days {
-			fmt.Printf("Day%v_P1: %v\n", i, v.Part1(aoc.GetInput(i, *testInputArg)))
-			fmt.Printf("Day%v_P2: %v\n", i, v.Part2(aoc.GetInput(i, *testInputArg)))
+			fmt.Printf("Day%v_P1: %v\n", i, v.Part1(advent.GetInput(i, *testInputArg)))
+			fmt.Printf("Day%v_P2: %v\n", i, v.Part2(advent.GetInput(i, *testInputArg)))
 		}
 	} else {
 		currentDayN := *currDayArg
@@ -28,11 +29,11 @@ func main() {
 		}
 		cD := days[currentDayN-1]
 
-		p1 := cD.Part1(aoc.GetInput(currentDayN, *testInputArg))
-		
+		p1 := cD.Part1(advent.GetInput(currentDayN, *testInputArg))
+
 		if p1 != "" {
 			fmt.Printf("Day%v_P1: %v\n", currentDayN, p1)
-			p2 := cD.Part2(aoc.GetInput(currentDayN, *testInputArg))
+			p2 := cD.Part2(advent.GetInput(currentDayN, *testInputArg))
 			if p2 != "" {
 				fmt.Printf("Day%v_P2: %v\n", currentDayN, p2)
 			}

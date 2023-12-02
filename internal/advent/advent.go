@@ -1,9 +1,10 @@
-package aoc
+package advent
 
 import (
-	"aoc/internal/util"
 	"fmt"
 	"log"
+
+	"github.com/valonsogit/aoc-2023/internal/util"
 )
 
 type Day interface {
