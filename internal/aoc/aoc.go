@@ -22,7 +22,7 @@ func GetInput(day int, test bool) []string {
 		if err == nil {
 			return input
 		}
-		fmt.Printf("Missing test input for day %v part %v\n, using full input", day, accessMap[day])
+		fmt.Printf("Missing test input for day %v part %v, using full input\n", day, accessMap[day])
 	}
 
 	fullPath := fmt.Sprintf("input/full/%v.txt", day)

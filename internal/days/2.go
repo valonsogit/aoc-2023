@@ -109,18 +109,11 @@ func (d Day2) Part1(input []string) string {
 
 	sumOfPossibleGames := uint(0)
 
-	var wg2 sync.WaitGroup
 	for g := range gamesChannel {
-		wg2.Add(1)
-		go func(g Game) {
-			defer wg2.Done()
-			if g.MaxRed <= bag.Red && g.MaxBlue <= bag.Blue && g.MaxGreen <= bag.Green {
-				sumOfPossibleGames += g.id
-			}
-		}(g)
+		if g.MaxRed <= bag.Red && g.MaxBlue <= bag.Blue && g.MaxGreen <= bag.Green {
+			sumOfPossibleGames += g.id
+		}
 	}
-
-	wg2.Wait()
 
 	return fmt.Sprint(sumOfPossibleGames)
 }
