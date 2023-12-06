@@ -16,7 +16,7 @@ func main() {
 	testInputArg := flag.Bool("t", false, "Whether to use test inputs instead of full ones.")
 	flag.Parse()
 
-	days := []aoc.Day{days.Day1{}, &days.Day2{}, &days.Day3{}, &days.Day4{}}
+	days := []aoc.Day{days.Day1{}, &days.Day2{}, &days.Day3{}, &days.Day4{}, &days.Day5{}, days.Day6{}}
 	if *executeAllArg {
 		for i, v := range days {
 			fmt.Printf("Day%v_P1: %v\n", i, v.Part1(aoc.GetInput(i, *testInputArg)))

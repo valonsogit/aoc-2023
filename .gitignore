@@ -2,3 +2,5 @@
 ./notifier
 .env
 wha.db
+aoc
+notifier
