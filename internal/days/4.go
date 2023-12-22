@@ -23,8 +23,11 @@ func (d Day4) Part1(input []string) string {
 			}
 		}
 		if won != -1 {
-			// fmt.Printf("Card %v is worth %v points\n", lineN, math.Pow(2, float64(won)))
 			t += int(math.Pow(2, float64(won)))
+			fmt.Printf("%v\n", int(math.Pow(2, float64(won))))
+		}else{
+
+			fmt.Printf("0\n")
 		}
 	}
 	return fmt.Sprint(t)

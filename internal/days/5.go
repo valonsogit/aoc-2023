@@ -155,12 +155,17 @@ func (d Day5) Part2(input []string) string {
 			fmt.Printf("%v\r", processed)
 		}
 	}()
+	
 	var wg sync.WaitGroup
 	total := 0
 	for i := 0; i < len(seedSection)/2; i++ {
 		start, _ := strconv.Atoi(seedSection[i*2])
 		rang, _ := strconv.Atoi(seedSection[i*2+1])
 		fmt.Printf("\nStarting section %v\n", i)
+		if i != 0{
+			endTime := time.Now().Local().Unix()
+			fmt.Printf("Total time: %vH:%vM:%vS\n", (endTime-startTime)/3600, ((endTime-startTime)%3600)/60, ((endTime-startTime)%3600)%60)
+		}
 		for x := 0; x < rang; x++ {
 			wg.Add(1)
 			go func(x int) {
@@ -175,8 +180,7 @@ func (d Day5) Part2(input []string) string {
 	wg.Wait()
 	close(minChannel)
 
-	endTime := time.Now().Local().Unix()
-	fmt.Printf("Total time: %vH:%vM:%vS\n", (endTime-startTime)/3600, ((endTime-startTime)%3600)/60, ((endTime-startTime)%3600)%60)
+
 
 	fmt.Println()
 	return fmt.Sprintf("The closest location is %v\n", min)
